@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>江苏快三 管理员 —— 用户管理</title>
+
+
+    <!--thymeleaf方式引入Layui-->
+</head>
+<body>
+<div style="margin-left: 150px; margin-top: 80px;">
+    <h2 style="margin-left: 50px;">用户管理：</h2>
+
+    <hr/>
+    <table >
+        <tr>
+            <th>ID</th>
+            <th>用户名</th>
+            <th>——操作——</th>
+        </tr>
+
+        <tr th:each="user:${userList}">
+            <td th:text="${user.getUserId()}"></td><br/>
+            <td th:text="${user.getUserName()}"></td><br/>
+            <td>
+                <button th:id="${user.getUserId()}" th:onclick="'javascript:deleteUser('+${user.getUserId()}+');'">删除用户</button>
+            </td>
+        </tr>
+    </table>
+    <hr/><br/>
+
+    <form class="layui-form" th:action="addUser" method="post">
+        <h4>增加用户</h4>
+        <div class="layui-inline" style="margin-top: 80px; margin-left: 150px;">
+            <input type="text" name="adminName" required placeholder="请输入用户名"  class="layui-input">
+        </div>
+
+        <div class="layui-inline" style="margin-top:25px; margin-left: 150px;">
+            <input type="password" name="adminPwd" required placeholder="请输入密码"  class="layui-input">
+        </div>
+
+        <button type="submit" style="position: absolute;top: 440px; left: 350px;">addUser</button>
+    </form>
+</div>
+
+<script   th:src="@{/layui/js/jquery.min.js}"></script>
+<script  th:src="@{/layui/js/userHome.js}"></script>
+
+<script th:src="@{/layui/layui.js}"></script> <!--thymeleaf方式引入Layui-->
+</body>
+</html>

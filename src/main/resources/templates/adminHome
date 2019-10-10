@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>江苏快三 管理员 —— 用户管理</title>
+    <link th:href="@{/layui/css/layui.css}" rel="stylesheet"/>  <!--thymeleaf方式引入Layui-->
+</head>
+<body>
+<h2>用户管理：</h2>
+
+<ul th:each="user:${userList}">
+
+</ul>
+
+<script th:src="@{/layui/layui.js}"></script> <!--thymeleaf方式引入Layui-->
+</body>
+</html>
